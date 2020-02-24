@@ -1,0 +1,7 @@
+H:\VS_WorkSpace\BookShop\BookShop.DAL\bin\Release\BookShop.DAL.dll.config
+H:\VS_WorkSpace\BookShop\BookShop.DAL\bin\Release\BookShop.DAL.dll
+H:\VS_WorkSpace\BookShop\BookShop.DAL\bin\Release\BookShop.DAL.pdb
+H:\VS_WorkSpace\BookShop\BookShop.DAL\obj\Release\BookShop.DAL.csprojAssemblyReference.cache
+H:\VS_WorkSpace\BookShop\BookShop.DAL\obj\Release\BookShop.DAL.csproj.CoreCompileInputs.cache
+H:\VS_WorkSpace\BookShop\BookShop.DAL\obj\Release\BookShop.DAL.dll
+H:\VS_WorkSpace\BookShop\BookShop.DAL\obj\Release\BookShop.DAL.pdb

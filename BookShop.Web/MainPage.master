@@ -1,0 +1,131 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MainPage.master.cs" Inherits="MainPage" %>
+
+<!DOCTYPE html>
+
+<html>
+    <head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title></title>
+        <link rel="stylesheet" href="layui/css/layui.css" />
+        <script src="layui/layui.js" type="text/javascript"></script>
+        <script></script>
+        <style type="text/css">
+            .text-hidden {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            li{
+                margin:0px 5px;
+            }
+            .input-search{
+                display:inline !important;
+            }
+            .text-center{
+                text-align:center;
+            }
+           ul.ulCard li{
+              margin-top:12px;
+           }
+           .bg-lightgreen{
+              background-color:#5FB878;
+           }
+        </style>
+        <asp:ContentPlaceHolder id="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </head>
+    <body class="layui-bg-gray">
+        <form id="form1" runat="server" class="layui-form">
+            <asp:ScriptManager ID="ScriptManager1" runat="server" />
+            <!--导航栏-->
+            <div class="layui-bg-green">
+                <div class="layui-header layui-container">
+                    <!--logo-->
+                    <div>
+                        <a href="Default.aspx" style="line-height: 60px;">
+                            <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/logo.png" Height="40px" />
+                        </a>
+                    </div>
+                    <ul class="layui-nav layui-layout-left layui-bg-green">
+                        <li class="layui-nav-item">
+                            <a href="Default.aspx"><i class="layui-icon layui-icon-home" style="line-height: normal"></i>首页</a>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a>联系我们</a>
+                        </li>
+                    </ul>
+                    <ul class="layui-nav layui-layout-right layui-bg-green">
+                        <li class="layui-nav-item ">
+                            <a href="ProCart.aspx">
+                                <i class="layui-icon layui-icon-cart" style="line-height: normal"></i>购物车
+                               <span class="layui-badge" id="cartNum" runat="server" style="position: relative !important;">0</span>
+                            </a>
+                        </li>
+                        <li class="layui-nav-item">
+                            <a href="MyOrders.aspx">我的订单</a>
+                        </li>
+                        <li class="layui-nav-item">
+                            <!--用户登录后隐藏“lbtnToLogin”-->
+                            <asp:LinkButton ID="LBtnToLogin" runat="server" Visible="True" PostBackUrl="~/Login.aspx">登录</asp:LinkButton>
+                            <!--用户登录后显示“LoginStatus”-->
+                            <asp:Panel ID="LoginStatus" runat="server" Visible="False" CssClass="text-hidden">
+                                <a>
+                                    <asp:Image ID="HeadImage" runat="server" CssClass="layui-nav-img" ImageUrl="HeadImage.aspx" />
+                                    <asp:Label ID="lblUserName" runat="server"></asp:Label>
+                                </a>
+                                <dl class="layui-nav-child">
+                                    <dd>
+                                        <a href="Security.aspx">安全管理</a></dd>
+                                    <dd>
+                                        <a href="MyComments.aspx">我的评价</a></dd>
+                                    <dd>
+                                        <a href="MyCollections.aspx">我的收藏</a></dd>
+                                    <dd>
+                                        <a href="ModifyInfo.aspx">信息修改</a></dd>
+                                    <dd>
+                                        <asp:LinkButton ID="LBtnLogOut" runat="server" OnClick="LBtnLogOut_Click">退出登录</asp:LinkButton></dd>
+                                </dl>
+                            </asp:Panel>
+                        </li>
+                        <li class="layui-nav-item">
+                            <asp:LinkButton ID="LBtnToRegister" runat="server" PostBackUrl="~/Register.aspx">注册</asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 主体部分-->
+            <div>
+                <div class="layui-container" style="margin-top: 10px;">
+                    <div class="layui-row">
+                        当前位置：<asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath>
+                    </div>
+                    <!--内容页-->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+            <!--尾部-->
+            <div class="layui-bg-green" style="margin-top: 50px;">
+                <div class="layui-container" style="text-align: center">
+                    <div class="layui-row">
+                        <div class="layui-col-lg12">
+                            <asp:Label ID="Label1" runat="server" Font-Size="Medium">Made By  GZC<br />Copyright 2019 BookShop</asp:Label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <script>
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+            layui.use('element', function () {
+                var element = layui.element;
+            });
+            layui.use('form', function () {
+                var form = layui.form;
+            });
+        </script>
+
+    </body>
+</html>

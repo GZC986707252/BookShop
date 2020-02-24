@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BookShop" Class="BookShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-GZC\SQLSERVER2017;Initial Catalog=BookShop;Integrated Security=True" SettingsObjectName="BookShop.DAL.Properties.Settings" SettingsPropertyName="BookShopConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Books" Member="Books">
+    <Type Name="Books">
+      <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookName" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="ISBN" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Author" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="PubHouse" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="BookImage" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="BookDescn" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ListPrice" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PraiseQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Books_CartItem" Member="CartItem" ThisKey="BookId" OtherKey="BookId" Type="CartItem" />
+      <Association Name="Books_Collections" Member="Collections" ThisKey="BookId" OtherKey="BookId" Type="Collections" />
+      <Association Name="Books_Comment" Member="Comment" ThisKey="BookId" OtherKey="BookId" Type="Comment" />
+      <Association Name="Category_Books" Member="Category" ThisKey="CategoryId" OtherKey="CategoryId" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CartItem" Member="CartItem">
+    <Type Name="CartItem">
+      <Column Name="CartItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProName" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="ProPrice" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="ProQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Books_CartItem" Member="Books" ThisKey="BookId" OtherKey="BookId" Type="Books" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="UserInfo_CartItem" Member="UserInfo" ThisKey="UserId" OtherKey="UserId" Type="UserInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="Category">
+    <Type Name="Category">
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Association Name="Category_Books" Member="Books" ThisKey="CategoryId" OtherKey="CategoryId" Type="Books" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Collections" Member="Collections">
+    <Type Name="Collections">
+      <Column Name="CollectionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookName" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="ListPrice" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Association Name="Books_Collections" Member="Books" ThisKey="BookId" OtherKey="BookId" Type="Books" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="UserInfo_Collections" Member="UserInfo" ThisKey="UserId" OtherKey="UserId" Type="UserInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comment" Member="Comment">
+    <Type Name="Comment">
+      <Column Name="CommentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TextContent" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ComDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Books_Comment" Member="Books" ThisKey="BookId" OtherKey="BookId" Type="Books" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="UserInfo_Comment" Member="UserInfo" ThisKey="UserId" OtherKey="UserId" Type="UserInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Order]" Member="Order">
+    <Type Name="Order">
+      <Column Name="OrderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Zip" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="Order_OrderItem" Member="OrderItem" ThisKey="OrderId" OtherKey="OrderId" Type="OrderItem" />
+      <Association Name="UserInfo_Order" Member="UserInfo" ThisKey="UserId" OtherKey="UserId" Type="UserInfo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderItem" Member="OrderItem">
+    <Type Name="OrderItem">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProName" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="ProPrice" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="ProQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Association Name="Order_OrderItem" Member="Order" ThisKey="OrderId" OtherKey="OrderId" Type="Order" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserInfo" Member="UserInfo">
+    <Type Name="UserInfo">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="UserPsd" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="PayPsd" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="UserAdd" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="UserType" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="UserInfo_CartItem" Member="CartItem" ThisKey="UserId" OtherKey="UserId" Type="CartItem" />
+      <Association Name="UserInfo_Collections" Member="Collections" ThisKey="UserId" OtherKey="UserId" Type="Collections" />
+      <Association Name="UserInfo_Comment" Member="Comment" ThisKey="UserId" OtherKey="UserId" Type="Comment" />
+      <Association Name="UserInfo_Order" Member="Order" ThisKey="UserId" OtherKey="UserId" Type="Order" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 18" name="BookShop">
+  <DataContextMoniker Name="/BookShopDataContext" />
+  <nestedChildShapes>
+    <classShape Id="99529732-caca-4d89-95b7-1ac33da6c061" absoluteBounds="0.75, 0.875, 2, 2.8308638509114576">
+      <DataClassMoniker Name="/BookShopDataContext/Books" />
+      <nestedChildShapes>
+        <elementListCompartment Id="973d637a-da5a-45a1-b7c5-bdf6d5073591" absoluteBounds="0.765, 1.335, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9e384368-29f0-48df-abfb-a30bc87c658a" absoluteBounds="3.5, 8.25, 2, 1.9068933105468737">
+      <DataClassMoniker Name="/BookShopDataContext/CartItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd344447-73d5-4f64-9fe8-bdd1bdba8db4" absoluteBounds="3.515, 8.71, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="96275578-543c-4dfb-82eb-b45e16a5e357" absoluteBounds="1.5, 16.625, 2, 1.1677168782552059">
+      <DataClassMoniker Name="/BookShopDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0cd0f7f9-c1cd-4dca-b11d-af9fb1ad894e" absoluteBounds="1.5150000000000001, 17.085, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="611c15b6-bf2b-4c32-8afb-2c26aedb4260" absoluteBounds="3.5, 5.375, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/BookShopDataContext/Collections" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56bc42b4-4887-4580-824f-5cf3fa37b4db" absoluteBounds="3.515, 5.835, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a6590b78-c112-4e2d-a237-823134baa1c6" absoluteBounds="3.5, 2.375, 2, 1.7220992024739577">
+      <DataClassMoniker Name="/BookShopDataContext/Comment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cdb18786-e18f-403d-a7e5-606e65408290" absoluteBounds="3.515, 2.835, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a8bc09b-e029-482c-a212-8b666c1c7316" absoluteBounds="3.5, 12.75, 2, 2.2764815266927094">
+      <DataClassMoniker Name="/BookShopDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ce69d7a-811a-4cca-83da-18fff0a15777" absoluteBounds="3.515, 13.21, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7bc17c2a-955e-46ce-a9be-56258b3949b6" absoluteBounds="6.25, 12.875, 2, 1.9068933105468737">
+      <DataClassMoniker Name="/BookShopDataContext/OrderItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e97d9f1a-9553-4b35-a5f6-a7dae4f73e0c" absoluteBounds="6.265, 13.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abc9c5ca-0440-44e1-ab7c-32ccadea6db2" absoluteBounds="0.75, 5, 2, 2.4612756347656255">
+      <DataClassMoniker Name="/BookShopDataContext/UserInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ffbf1ff0-d7cf-44c9-847d-d33fad37144c" absoluteBounds="0.765, 5.46, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.71769230769231 : 3.70586385091146); (3.125 : 4.11317154321915); (3.125 : 9.20344665527344); (3.19791666666667 : 9.20344665527344 : JumpStart); (3.36458333333333 : 9.20344665527344 : JumpEnd); (3.5 : 9.20344665527344)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookShopDataContext/Books/Books_CartItem" />
+      <nodes>
+        <classShapeMoniker Id="99529732-caca-4d89-95b7-1ac33da6c061" />
+        <classShapeMoniker Id="9e384368-29f0-48df-abfb-a30bc87c658a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.28125 : 16.625); (3.28125 : 2.25917942545573); (2.75 : 2.25917942545573)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookShopDataContext/Category/Category_Books" />
+      <nodes>
+        <classShapeMoniker Id="96275578-543c-4dfb-82eb-b45e16a5e357" />
+        <classShapeMoniker Id="99529732-caca-4d89-95b7-1ac33da6c061" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.61047823552684); (3.1875 : 4.04797823552684); (3.1875 : 6.23604960123698); (3.19791666666667 : 6.23604960123698 : JumpStart); (3.36458333333333 : 6.23604960123698 : JumpEnd); (3.5 : 6.23604960123698)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookShopDataContext/Books/Books_Collections" />
+      <nodes>
+        <classShapeMoniker Id="99529732-caca-4d89-95b7-1ac33da6c061" />
+        <classShapeMoniker Id="611c15b6-bf2b-4c32-8afb-2c26aedb4260" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.96148661776342); (3.19791666666667 : 2.96148661776342 : JumpStart); (3.36458333333333 : 2.96148661776342 : JumpEnd); (3.5 : 2.96148661776342)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookShopDataContext/Books/Books_Comment" />
+      <nodes>
+        <classShapeMoniker Id="99529732-caca-4d89-95b7-1ac33da6c061" />
+        <classShapeMoniker Id="a6590b78-c112-4e2d-a237-823134baa1c6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 13.8284466552734); (6.25 : 13.8284466552734)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookShopDataContext/Order/Order_OrderItem" />
+      <nodes>
+        <classShapeMoniker Id="8a8bc09b-e029-482c-a212-8b666c1c7316" />
+        <classShapeMoniker Id="7bc17c2a-955e-46ce-a9be-56258b3949b6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 7.46127563476563); (1.75 : 8.69547082763672); (2.19791916666667 : 8.69547082763672 : JumpStart); (2.36458583333333 : 8.69547082763672 : JumpEnd); (3.04166666666667 : 8.69547082763672 : JumpStart); (3.36458333333333 : 8.69547082763672 : JumpEnd); (3.5 : 8.69547082763672)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookShopDataContext/UserInfo/UserInfo_CartItem" />
+      <nodes>
+        <classShapeMoniker Id="abc9c5ca-0440-44e1-ab7c-32ccadea6db2" />
+        <classShapeMoniker Id="9e384368-29f0-48df-abfb-a30bc87c658a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.74302480061849); (3.04166666666667 : 5.74302480061849 : JumpStart); (3.36458333333333 : 5.74302480061849 : JumpEnd); (3.5 : 5.74302480061849)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookShopDataContext/UserInfo/UserInfo_Collections" />
+      <nodes>
+        <classShapeMoniker Id="abc9c5ca-0440-44e1-ab7c-32ccadea6db2" />
+        <classShapeMoniker Id="611c15b6-bf2b-4c32-8afb-2c26aedb4260" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.03230669230769); (3.06607443490112 : 4.71623225740657 : JumpStart); (3.34017556509888 : 4.44213112720881 : JumpEnd); (3.34375 : 4.43855669230769); (3.34375 : 3.56054491011869); (3.5 : 3.56054491011869)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookShopDataContext/UserInfo/UserInfo_Comment" />
+      <nodes>
+        <classShapeMoniker Id="abc9c5ca-0440-44e1-ab7c-32ccadea6db2" />
+        <classShapeMoniker Id="a6590b78-c112-4e2d-a237-823134baa1c6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 7.46127563476563); (2.2812525 : 13.8882407633464); (3.19791666666667 : 13.8882407633464 : JumpStart); (3.36458333333333 : 13.8882407633464 : JumpEnd); (3.5 : 13.8882407633464)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookShopDataContext/UserInfo/UserInfo_Order" />
+      <nodes>
+        <classShapeMoniker Id="abc9c5ca-0440-44e1-ab7c-32ccadea6db2" />
+        <classShapeMoniker Id="8a8bc09b-e029-482c-a212-8b666c1c7316" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
